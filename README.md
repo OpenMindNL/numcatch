@@ -30,7 +30,8 @@ And for extreme cases where you might want to control thousands of devices with 
 
 ##Example for selecting TV-channels:
 
-- No matter how many times you are going to use Numcatch-triggers in your flows... The first flow is needed only once to feed them all with your voice.
+- No matter how many times you are going to use Numcatch-triggers in your flows... 
+The first flow is needed only once to feed them all with your voice.
 Because the number-detection is seperated from the voice recognition, you'll still be able to use an app like 'Better Voice' before you feed the text to 'Numcatch'.
 
 This flow sends the text output from 'you said anything' to Numcatch, where it will be searched for numbers.
@@ -45,7 +46,8 @@ The selection-figures (see next flow) will be assigned in consecutive manner to 
 * Duplicate the flow and change the name to TV-2. Change 1 to 2 in all cards. Save the flow... and so on until you have 10 flows, named TV-0...TV-9.
 ![](https://github.com/OpenMindNL/numcatch/raw/master/assets/images/example2.png)
 
-This flow triggers when Numcatch detects 1 number. When the text also contains ‘television’, 3 individual number-figures will be used to select a TV-channel.
+The next flow triggers when Numcatch detects 1 number. When the text also
+ contains â€˜televisionâ€™, 3 individual number-figures will be used to select a TV-channel.
 * Drag the 'text (source)' token from the trigger-card to the droptoke area on the '...contains' card in the '...and...' area.
 Before each digit is assigned to the 'TVnumber' variable, we first assign a asterisk (*) to it. The reason for that, is to be sure that the variable really changes when two consecutive digits are the same (like in: 22)
 * Drag the 'hundreds' token from the trigger-card to the droptoke area on the 2nd 'Set a textual variable' card.
