@@ -1,0 +1,443 @@
+{	
+	"id": "openmindnl.numcatch",
+	"name": {
+		"en": "Numcatch"
+	},
+	"version": "0.9.0",
+	"compatibility": "0.x || 1.x",
+
+	"description": {
+		"en": "Find numbers in a text",
+		"nl": "Vind nummers in een tekst"
+	},
+	"author": {
+		"name": "Alex van den Berg",
+		"email": "openmind_nl@hotmail.com"
+	},
+	"contributors": {
+		"developers": [
+			{
+				"name": "Alex van den Berg",
+				"email": "openmind_nl@hotmail.com"
+			}
+		]
+	},
+	"category": "tools",
+	"images": {
+		"large": "assets/images/large.jpg",
+		"small": "assets/images/small.jpg"
+	},
+	"flow": {
+		"triggers": [
+			{
+				"id": "one_number",
+				"title": {
+					"en": "1 number found",
+					"nl": "1 getal gevonden"
+				},
+				"hint":{
+					"en":"This flow triggers when Numcatch finds 1 number in a text. Up to 6 individual figures are available through the tokens",
+					"nl":"Deze flow wordt gestart als Numcatch 1 getal vindt in een tekst. Maximaal 6 individuele cijfers zijn beschikbaar via de tokens"
+				},
+				"tokens": [
+					{
+						"name": "digit_1",
+						"type": "number",
+						"title": {
+							"en": "units",
+							"nl": "eenheden"
+						}
+					},
+					{
+						"name": "digit_2",
+						"type": "number",
+						"title": {
+							"en": "tens",
+							"nl": "tientallen"
+						}
+					},
+					{
+						"name": "digit_3",
+						"type": "number",
+						"title": {
+							"en": "hundreds",
+							"nl": "honderdtallen"
+						}
+					},
+					{
+						"name": "digit_4",
+						"type": "number",
+						"title": {
+							"en": "thousands",
+							"nl": "duizendtallen"
+						}
+					},
+					{
+						"name": "digit_5",
+						"type": "number",
+						"title": {
+							"en": "tens of thousands",
+							"nl": "tienduizenden"
+						}
+					},
+					{
+						"name": "digit_6",
+						"type": "number",
+						"title": {
+							"en": "hundreds of thousands",
+							"nl": "honderduizenden"
+						}
+					},
+					{
+						"name": "detected_number",
+						"type": "number",
+						"title": {
+							"en": "number",
+							"nl": "getal"
+						}
+					},
+					{
+						"name": "full_text",
+						"type": "string",
+						"title": {
+							"en": "text (source)",
+							"nl": "tekst (bron)"
+						}
+					}
+				]
+			},
+			{
+				"id": "two_numbers",
+				"title": {
+					"en": "2 numbers found, 2+3 digits",
+					"nl": "2 getallen gevonden, 2+3 cijfers"
+				},
+				"hint":{
+					"en":"This flow triggers when Numcatch finds 2 numbers in a text. Up to 2 individual figures of the 1st number and 3 individual figures of the 2nd number are available through the tokens",
+					"nl":"Deze flow wordt gestart als Numcatch 2 getallen vindt in een tekst. Maximaal 2 individuele cijfers van het 1e getal en 3 individuele cijfers van het 2e getal zijn beschikbaar via de tokens"
+				},
+				"tokens": [
+					{
+						"name": "digit_1",
+						"type": "number",
+						"title": {
+							"en": "2: units",
+							"nl": "2: eenheden"
+						}
+					},
+					{
+						"name": "digit_2",
+						"type": "number",
+						"title": {
+							"en": "2: tens",
+							"nl": "2: tientallen"
+						}
+					},
+					{
+						"name": "digit_3",
+						"type": "number",
+						"title": {
+							"en": "2: hundreds",
+							"nl": "2: honderdtallen"
+						}
+					},
+					{
+						"name": "digit_4",
+						"type": "number",
+						"title": {
+							"en": "1: units",
+							"nl": "1: eenheden"
+						}
+					},
+					{
+						"name": "digit_5",
+						"type": "number",
+						"title": {
+							"en": "1: tens",
+							"nl": "1: tientallen"
+						}
+					},
+					{
+						"name": "detected_number2",
+						"type": "number",
+						"title": {
+							"en": "2nd number",
+							"nl": "2e getal"
+						}
+					},
+					{
+						"name": "detected_number",
+						"type": "number",
+						"title": {
+							"en": "1st number",
+							"nl": "1e getal"
+						}
+					},
+					{
+						"name": "full_text",
+						"type": "string",
+						"title": {
+							"en": "text (source)",
+							"nl": "tekst (bron)"
+						}
+					}
+				]
+			},
+			{
+				"id": "two_numbers_b",
+				"title": {
+					"en": "2 numbers found, 3+2 digits",
+					"nl": "2 getallen gevonden, 3+2 cijfers"
+				},
+				"hint":{
+					"en":"This flow triggers when Numcatch finds 2 numbers in a text. Up to 3 individual figures of the 1st number and 2 individual figures of the 2nd number are available through the tokens",
+					"nl":"Deze flow wordt gestart als Numcatch 2 getallen vindt in een tekst. Maximaal 3 individuele cijfers van het 1e getal en 2 individuele cijfers van het 2e getal zijn beschikbaar via de tokens"
+				},
+				"tokens": [
+					{
+						"name": "digit_1",
+						"type": "number",
+						"title": {
+							"en": "2: units",
+							"nl": "2: eenheden"
+						}
+					},
+					{
+						"name": "digit_2",
+						"type": "number",
+						"title": {
+							"en": "2: tens",
+							"nl": "2: tientallen"
+						}
+					},
+					{
+						"name": "digit_3",
+						"type": "number",
+						"title": {
+							"en": "1: units",
+							"nl": "1: eenheden"
+						}
+					},
+					{
+						"name": "digit_4",
+						"type": "number",
+						"title": {
+							"en": "1: tens",
+							"nl": "1: tientallen"
+						}
+					},
+					{
+						"name": "digit_5",
+						"type": "number",
+						"title": {
+							"en": "1: hundreds",
+							"nl": "1: honderdtallen"
+						}
+					},
+					{
+						"name": "detected_number2",
+						"type": "number",
+						"title": {
+							"en": "2nd number",
+							"nl": "2e getal"
+						}
+					},
+					{
+						"name": "detected_number",
+						"type": "number",
+						"title": {
+							"en": "1st number",
+							"nl": "1e getal"
+						}
+					},
+					{
+						"name": "full_text",
+						"type": "string",
+						"title": {
+							"en": "text (source)",
+							"nl": "tekst (bron)"
+						}
+					}
+				]
+			},
+			{
+				"id": "two_numbers_1",
+				"title": {
+					"en": "1st of 2 found numbers",
+					"nl": "1e van 2 gevonden getallen"
+				},
+				"hint":{
+					"en":"This flow triggers when Numcatch finds 2 numbers in a text. Up to 6 individual figures for the 1st number are available through the tokens. There's no data available for the 2nd number.",
+					"nl":"Deze flow wordt gestart als Numcatch 2 getallen in een tekst vindt. Voor het 1e getal zijn maximaal 6 individuele cijfers beschikbaar via de tokens. Er zijn geen gegevens beschikbaar voor het 2e getal."
+				},
+				"tokens": [
+					{
+						"name": "digit_1",
+						"type": "number",
+						"title": {
+							"en": "units",
+							"nl": "eenheden"
+						}
+					},
+					{
+						"name": "digit_2",
+						"type": "number",
+						"title": {
+							"en": "tens",
+							"nl": "tientallen"
+						}
+					},
+					{
+						"name": "digit_3",
+						"type": "number",
+						"title": {
+							"en": "hundreds",
+							"nl": "honderdtallen"
+						}
+					},
+					{
+						"name": "digit_4",
+						"type": "number",
+						"title": {
+							"en": "thousands",
+							"nl": "duizendtallen"
+						}
+					},
+					{
+						"name": "digit_5",
+						"type": "number",
+						"title": {
+							"en": "tens of thousands",
+							"nl": "tienduizenden"
+						}
+					},
+					{
+						"name": "digit_6",
+						"type": "number",
+						"title": {
+							"en": "hundreds of thousands",
+							"nl": "honderduizenden"
+						}
+					},
+					{
+						"name": "detected_number",
+						"type": "number",
+						"title": {
+							"en": "1st number",
+							"nl": "1e getal"
+						}
+					},
+					{
+						"name": "full_text",
+						"type": "string",
+						"title": {
+							"en": "text (source)",
+							"nl": "tekst (bron)"
+						}
+					}
+				]
+			},
+			{
+				"id": "two_numbers_2",
+				"title": {
+					"en": "2nd of 2 found numbers",
+					"nl": "2e van 2 gevonden getallen"
+				},
+				"hint":{
+					"en":"This flow triggers when Numcatch finds 2 numbers in a text. Up to 6 individual figures for the 2nd number are available through the tokens. There's no data available for the 1st number.",
+					"nl":"Deze flow wordt gestart als Numcatch 2 getallen in een tekst vindt. Voor het 2e getal zijn maximaal 6 individuele cijfers beschikbaar via de tokens. Er zijn geen gegevens beschikbaar voor het 1e getal."
+				},
+				"tokens": [
+					{
+						"name": "digit_1",
+						"type": "number",
+						"title": {
+							"en": "units",
+							"nl": "eenheden"
+						}
+					},
+					{
+						"name": "digit_2",
+						"type": "number",
+						"title": {
+							"en": "tens",
+							"nl": "tientallen"
+						}
+					},
+					{
+						"name": "digit_3",
+						"type": "number",
+						"title": {
+							"en": "hundreds",
+							"nl": "honderdtallen"
+						}
+					},
+					{
+						"name": "digit_4",
+						"type": "number",
+						"title": {
+							"en": "thousands",
+							"nl": "duizendtallen"
+						}
+					},
+					{
+						"name": "digit_5",
+						"type": "number",
+						"title": {
+							"en": "tens of thousands",
+							"nl": "tienduizenden"
+						}
+					},
+					{
+						"name": "digit_6",
+						"type": "number",
+						"title": {
+							"en": "hundreds of thousands",
+							"nl": "honderduizenden"
+						}
+					},
+					{
+						"name": "detected_number",
+						"type": "number",
+						"title": {
+							"en": "2nd number",
+							"nl": "2e getal"
+						}
+					},
+					{
+						"name": "full_text",
+						"type": "string",
+						"title": {
+							"en": "text (source)",
+							"nl": "tekst (bron)"
+						}
+					}
+				]
+			}
+		],
+		"actions": [
+			{
+				"id": "number_detect",
+				"title": {
+					"en": "to Numcatch",
+					"nl": "naar Numcatch"
+				},
+				"hint":{
+					"en":"This card sends a text to Numcatch. When 1 or 2 numbers are found, flows with matching Numcatch cards in the 'If' column will be triggered",
+					"nl":"Dit kaartje stuurt een tekst naar Numcatch. Wanneer 1 of 2 getallen worden gevonden, worden flows met overeenkomende Numcatch kaartjes in de 'Als' kolom gestart"
+				},
+				"droptoken": ["string"]
+			}
+		]
+	},
+	"speech": [
+		{
+			"id": "numcatch_dummy",
+			"importance": 0.1,
+			"triggers": {
+				"en": [ "numcatch_dummy" ],
+				"nl": [ "numcatch_dummy" ]
+			}
+		}
+	]
+}
