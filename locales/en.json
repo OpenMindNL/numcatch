@@ -1,0 +1,17 @@
+{
+    "settings": {
+        "keyword": "Text",
+        "keynumb": "Replacement number",
+        "trigger": "Key",
+        "intro": "Numcatch searches for numbers in a text, and offers the individual figures for further processing.",
+	"link_info": "Use the following link to check how Homey interprets your speech. For example, does Homey hear 'BBC 1' or 'BBC1'?",
+        "link": "- Link to speech-input manager",
+        "settings_title": "Replace text by numbers",
+        "settings_intro": "Optionally, certain texts can be converted to a number first. This may be useful for something like selecting TV channels.<br><br>Below you can enter up to 100 texts and their replacement numbers (example: Discovery Science - 202). Use spaces when broadcast station names include a number. Numcatcher searches for text with spaces and without spaces, whereby the accuracy is enhanced. So, do not use 'BBC1' but 'BBC 1'",
+        "add_fields_button": "Add text with a replacement number",
+        "save": "Save",
+        "beforesaved": "Don't forget to save changes! -->",
+        "saved": "Changes are saved.",
+        "remove": "delete"
+    }
+}

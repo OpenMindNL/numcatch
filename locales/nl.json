@@ -1,0 +1,18 @@
+{
+    "settings": {
+        "keyword": "Tekst",
+        "keynumb": "Vervangend nummer",
+        "intro": "Numcatch zoekt getallen in een tekst en stelt de individuele cijfers beschikbaar voor verdere verwerking.",
+	"combinations_checkbox": "Zoek ook tekst-getallen zoals bijvoorbeeld 'drieentwintig'",
+	"link_info": "Gebruik de ",
+        "link_info2": " om te controleren hoe Homey je spraak interpreteert. Bijvoorbeeld, hoort Homey 'BBC 1' of 'BBC1'?",
+        "link": "speech-input manager",
+        "settings_title": "Tekst vervangen door nummers",
+        "settings_intro": "Eventueel kunnen bepaalde teksten eerst worden omgezet naar een getal. Dit kan onder andere handig zijn bij het selecteren van TV-kanalen.<br><br>Hieronder kunnen maximaal 100 teksten en een vervangend getal worden ingevoerd (Voorbeeld: Discovery Science - 202). Gebruik bij zendernamen met een nummer ook een spatie. Numcatcher zoekt naar tekst met spaties en zonder spaties, zodat de trefzekerheid wordt vergroot. Gebruik dus geen 'BBC1' maar 'BBC 1'",
+        "add_fields_button": "Tekst met een vervangend getal toevoegen",
+        "save": "Opslaan",
+        "beforesaved": "Vergeet niet om wijzigingen op te slaan! -->",
+        "saved": "Wijzigingen zijn opgeslagen.",
+        "remove": "verwijder"
+    }
+}
