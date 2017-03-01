@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+	<head>
+		<script type="text/javascript" src="/manager/webserver/assets/js/jquery.js"></script>
+		<style>
+			a:link {text-decoration: none; color: black;}
+			a:visited {text-decoration: none; color: black;}
+			a:hover {text-decoration: none; color: red; font-weight: bold;}
+			a:active {text-decoration: none; color: black;}
+		</style>
+	</head>
+	<body>
+		<h1>Numcatch</h1>
+		<p data-i18n="settings.intro"></p>
+		
+		<h2 data-i18n="settings.settings_title"></h2>
+		
+		<p data-i18n="settings.settings_intro"></p>
+		<fieldset>
+			<table class="input_fields_wrap">
+				<tr style="width:100%;">
+					<th>&nbsp;</th>
+					<th data-i18n="settings.keyword"></th>
+					<th data-i18n="settings.keynumb"></th>
+					<th>&nbsp;</th>
+				</tr>
+			</table>
+
+			<table width=100%><tr>
+			<td><button class="add_field_button" data-i18n="settings.add_fields_button"></button></td>
+		
+			<th><div style="display:none; color: green;" class="saved" data-i18n="settings.saved"></div><div style="display:none; color: black;" class="saved_b" data-i18n="settings.beforesaved"></div></th>
+			<td><button  style="display:none;" class="right" onclick="save();" data-i18n="settings.save"></button></td>
+			</tr></table>
+		</fieldset>
+		
+		<script type="text/javascript">
+
+		$(document).ready(function() {
+			var max_fields	  = 100; //maximum input boxes allowed
+			var wrapper		 = $(".input_fields_wrap"); //Fields wrapper
+			var add_button	  = $(".add_field_button"); //Add button ID
+			
+			var x = 1; //initlal text box count
+			$(add_button).click(function(e){ //on add input button click
+				e.preventDefault();
+				if(x < max_fields){ //max input box allowed
+					x++; //text box increment
+					
+					appendBoxes('', '');
+
+					$('.saved_b').show();
+					$('.right').show();
+				}
+			});
+			
+			$(wrapper).on("click",".remove_field", function(e){ //user click on remove text
+				e.preventDefault(); $(this).parent().parent('tr').remove(); x--;
+				$('.saved_b').show();
+			});
+		});
+		
+		function onHomeyReady(){
+			Homey.ready();
+			Homey.get('replacements', function(err, replacements){
+				if( err ) return console.error('Could not get replacements', err);
+				console.log('replacements: ', replacements);
+				var i = 0;
+				$.each(replacements, function( index, value ) {
+					appendBoxes(index, value);
+					i++;
+				});
+
+				if (i === 0) {
+					appendBoxes('', ''); // Always add one!
+				}
+			});
+		}
+		
+		function appendBoxes(val1, val2) {
+			var xLang = navigator.language.substr(0,2);
+			switch(xLang){
+			case 'nl': var txtRemove = 'Verwijderen!'; break;
+			default: var txtRemove = 'Delete!';
+			}
+
+			 //add input box
+			$(".input_fields_wrap").append('<tr class="input_holder"><td style="text-align: right;"></td><td><input class="input" type="text" value="'+val1+'" /></td><td><input class="replace" type="number" value="'+val2+'" /></td><td>&nbsp;<a href="#" title="'+txtRemove+'" class="remove_field">X</a></td></tr>');
+		}
+
+		function save() {
+			$('.saved_b').hide();
+			$('.saved').show();
+			var replacements = {};
+
+			$.each($('.input_holder'), function( index, value ) {
+				var t_input = $(this).find('.input').val().trim();
+				var t_replace = $(this).find('.replace').val().trim();
+				
+				if (t_input && t_replace) {
+					replacements[t_input] = t_replace;
+				}
+			});
+			console.log(replacements);
+			Homey.set('replacements', replacements);
+			setTimeout(function() { $('.saved').hide(); $('.right').hide();}, 1000);
+			
+		}
+		</script>
+	</body>
+</html>
