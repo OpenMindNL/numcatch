@@ -63,7 +63,7 @@ Before each digit is assigned to the 'TVnumber' variable, we first assign a aste
 * Drag the 'hundreds' token from the trigger-card to the droptoke area on the 2nd 'Set a textual variable' card.
 * Drag the 'tens' token from the trigger-card to the droptoke area on the 4th 'Set a textual variable' card.
 * Drag the 'units' token from the trigger-card to the droptoke area on the 6th 'Set a textual variable' card.
-* Drag the 'number' token from the trigger-card to the droptoke area on the 'Say something' card.
+* Drag the 'number' token from the trigger-card to the text area on the 'Say something' card.
 ![](https://github.com/OpenMindNL/numcatch/raw/master/assets/images/example3.png)
 
 When everything is entered, you are able to control TV-channel selection by saying; "OK Homey... Set television to channel 202" or whatever channel number you might like.
