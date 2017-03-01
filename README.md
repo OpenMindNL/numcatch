@@ -59,10 +59,11 @@ The selection-figures (see next flow) will be assigned in consecutive manner to 
 This flow triggers when Numcatch detects 1 number. When the text also
  contains ‘television’, 3 individual number-figures will be used to select a TV-channel.
 * Drag the 'text (source)' token from the trigger-card to the droptoke area on the '...contains' card in the '...and...' area.
+
 Before each digit is assigned to the 'TVnumber' variable, we first assign a asterisk (*) to it. The reason for that, is to be sure that the variable really changes when two consecutive digits are the same (like in: 22)
-* Drag the 'hundreds' token from the trigger-card to the droptoke area on the 2nd 'Set a textual variable' card.
-* Drag the 'tens' token from the trigger-card to the droptoke area on the 4th 'Set a textual variable' card.
-* Drag the 'units' token from the trigger-card to the droptoke area on the 6th 'Set a textual variable' card.
+* Drag the 'hundreds' token from the trigger-card to the value area on the 2nd 'Set a textual variable' card.
+* Drag the 'tens' token from the trigger-card to the value area on the 4th 'Set a textual variable' card.
+* Drag the 'units' token from the trigger-card to the value area on the 6th 'Set a textual variable' card.
 * Drag the 'number' token from the trigger-card to the text area on the 'Say something' card.
 
 When everything is entered, you are able to control TV-channel selection by saying; "OK Homey... Set television to channel 202" or whatever channel number you might like.
