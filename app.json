@@ -3,7 +3,7 @@
 	"name": {
 		"en": "Numcatch"
 	},
-	"version": "0.9.0",
+	"version": "1.0.0",
 	"compatibility": "0.x || 1.x",
 
 	"description": {
@@ -22,7 +22,10 @@
 			}
 		]
 	},
-	"category": "tools",
+	"category": [
+		"appliances",
+		"tools"
+		],
 	"images": {
 		"large": "assets/images/large.jpg",
 		"small": "assets/images/small.jpg"
