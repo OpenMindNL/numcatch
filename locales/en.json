@@ -1,17 +1,20 @@
 {
     "settings": {
-        "keyword": "Text",
-        "keynumb": "Replacement number",
-        "trigger": "Key",
-        "intro": "Numcatch searches for numbers in a text, and offers the individual figures for further processing.",
-	"link_info": "Use the following link to check how Homey interprets your speech. For example, does Homey hear 'BBC 1' or 'BBC1'?",
-        "link": "- Link to speech-input manager",
-        "settings_title": "Replace text by numbers",
-        "settings_intro": "Optionally, certain texts can be converted to a number first. This may be useful for something like selecting TV channels.<br><br>Below you can enter up to 100 texts and their replacement numbers (example: Discovery Science - 202). Use spaces when broadcast station names include a number. Numcatcher searches for text with spaces and without spaces, whereby the accuracy is enhanced. So, do not use 'BBC1' but 'BBC 1'",
-        "add_fields_button": "Add text with a replacement number",
-        "save": "Save",
-        "beforesaved": "Don't forget to save changes! -->",
-        "saved": "Changes are saved.",
-        "remove": "delete"
+        "intro": "The Numcatch action-card examines a text for numbers. Trigger-cards offer the original text, the found numbers and their individual digits for further processing.",
+	"replace_title": "Replace text by a number",
+        "replace_info": "Optionally, certain texts can be converted to a number first. This may be useful for something like selecting radio and TV channels.<br><br>At the left you can enter up to 200 texts and their replacement numbers (example: Discovery Science - 202).<br>New items will be added at the bottom of the list. Use spaces when broadcast station names include a number. Numcatcher searches for text with spaces and without spaces which enhances the accuracy. So, do not use 'BBC1' but 'BBC 1'.<br><br>Click the column-headers to sort.",
+        "replace_text": "&nbsp;Text",
+        "replace_numb": "&nbsp;Replacement",
+        "replace_add_button": "Add new text with replacement",
+	"replace_items": "items",
+	"textnumber_title": "Translate text-numbers to numbers.",
+	"textnumber_info": "It may happen that Homey does not recognize a number as figures but as text (for example, 'one' instead of '1'). If that bothers in your flows, use this setting to translate al words from 'zero' to 'ninety-nine' to numbers 0...99.",
+	"textnumber_checkbox": "Translate text-numbers to numbers.",
+	"remove": "Remove",
+	"used": "Used",
+	"free": "Free",
+	"updated": "Updated",
+	"sort_text": "Sort by text",
+	"sort_replacement": "Sort by replacement"
     }
 }
