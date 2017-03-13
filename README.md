@@ -57,26 +57,34 @@ The selection-figures (see next flow) will be assigned in consecutive manner to 
 
 ![](https://github.com/OpenMindNL/numcatch/raw/master/assets/images/example3.png)
 This flow triggers when Numcatch detects 1 number. When the text also
- contains ‘television’, 3 individual number-figures will be used to select a TV-channel.
-* Drag the 'text (source)' token from the trigger-card to the droptoke area on the '...contains' card in the '...and...' area.
+ contains ‘television’, 3 individual digits will be used to select a TV-channel.
+* Drag the 'text (source)' token from the trigger-card to the droptoken area on the '...contains' card in the '...and...' area.
 
-Before each digit is assigned to the 'TVnumber' variable, we first assign a asterisk (*) to it. The reason for that, is to be sure that the variable really changes when two consecutive digits are the same (like in: 22)
+Before each digit is assigned to the 'TVnumber' variable, we first assign an asterisk (*) to it. The reason for that, is to be sure that the variable really changes when two consecutive digits are the same (like in: 22)
 * Drag the 'hundreds' token from the trigger-card to the value area on the 2nd 'Set a textual variable' card.
 * Drag the 'tens' token from the trigger-card to the value area on the 4th 'Set a textual variable' card.
 * Drag the 'units' token from the trigger-card to the value area on the 6th 'Set a textual variable' card.
 * Drag the 'number' token from the trigger-card to the text area on the 'Say something' card.
 
-When everything is entered, you are able to control TV-channel selection by saying; "OK Homey... Set television to channel 202" or whatever channel number you might like.
+When everything is entered, you are able to control TV-channel selection by saying; "OK Homey... Set television to channel 202" ...or whatever channel number you might like.
+NOTE: When it seems like not all digits are received by your TV, try to set some delays for a few action-cards. Set the 3rd and 4th 'Set textual variable' card to a delay of 1 second and set the 5th and 6th card to a delay of 2 seconds. This inserts a 1 second pause before sending the digits.
 
 Nice... but wouldn't it be great when you could just say: "OK Homey... Set television to Discovery Science"..?
 Numcatch offers a text-to-number conversion for that! Check out: Settings - Numcatch.
-![](https://github.com/OpenMindNL/numcatch/raw/master/assets/images/example4.png)
+![](https://github.com/OpenMindNL/numcatch/raw/master/assets/images/example4_1.png)
+
+##Enjoy!
 
 
-###v0.0.9:
+###Version history
+###v1.0.0:
+* Redesigned the settings page for better usability:
+ * Prevention for entering useless characters. Allowed are: A...Z, a...z, 0...9 and space.
+ * New setting to enable/disable translation of text-numbers to figures. (like 'one' to '1').
+ * Maximum number of replacements increased to 200.
+ * Bug removed: If texts were partially similar, the shorter text could prevent the longer text to be replaced by a number. The longer text now takes precedence over the shorter one. (example: Discovery / Discovery Science). 
+ * Changes are saved automatically.
+* Some small changes and corrections were made to the text that you are reading right now.
+
+###v0.9.0:
 * First public release
-
-NOTE:
- Built-in conversion for English and Dutch text-numbers (twenty-one, twenty-two, twenty-three) to numbers (21, 22, 23) in the range from 0...99.
- This conversion will possibly be removed when Athom brings some consistency to Homey's understanding of numbers (text or figures) but for now it brings more accuracy to the app.
- However, I can't handle a bug in Homey's strange understanding of some numbers in a particular syntax (firmware v1.1.9). Athom is working on that.
