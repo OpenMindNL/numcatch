@@ -1,11 +1,13 @@
 "use strict";
 
 var tokens, replacements = {};
+var changeNumTxt = {};
 var changeToNum = {};
 
 function initReplace() {
 
 	// initialize text-number -> number replacemtents. 0...100
+	changeNumTxt = {};
 	changeToNum = {};
 	var xLang = Homey.manager( 'i18n' ).getLanguage( );
 	switch(xLang){
@@ -20,19 +22,12 @@ function initReplace() {
 		var replTen = ['', 'ten', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'];
 	}
 
+
 	for(var i = 99; i > -1; i--){
 		var t_input = '', t_replace = '';
 		var i1 = Math.floor(i/10), i2 = i-i1*10;
 
 		switch(xLang){
-		case 'de':
-			switch(i1){
-			case 0: t_input = replUnit[i]; if(i == 1){ t_input += 's';} break;
-			case 1: t_input = replTeen[i2]; break;
-			default: t_input = replTen[i1]; if(i2 > 0){ t_input = replUnit[i2] + 'und' + t_input; }
-			}
-			break;
-
 		case 'nl':
 			switch(i1){
 			case 0: t_input = replUnit[i]; break;
@@ -48,14 +43,11 @@ function initReplace() {
 			default: t_input = replTen[i1]; if(i2 > 0){ t_input = t_input + '-' + replUnit[i2]; }
 			}
 		}
-		
-		//if (i < 11){ 
-			t_input = ' ' + t_input + ' ';
-			t_replace = ' ' + i.toString() + ' ';
-		//}
-		changeToNum[t_input] = t_replace;
+		t_input = ' ' + t_input + ' ';
+		t_replace = ' ' + i.toString() + ' ';
+		changeNumTxt[t_input] = t_replace;
 	}
-
+	
 
 	// initialize usertext -> num replacemtents. 0...100
     	var replText = Homey.manager('settings').get('replacements');
@@ -80,30 +72,46 @@ Homey.manager('flow').on('action.number_detect', function( callback, args ){
 		mDig = [];
 
 	var hLog = '';
-	// replacements
-	if (typeof changeToNum === 'object') {
-		Object.keys(changeToNum).forEach(function (key) {
-			var txt_change = changeToNum[key];
-			while(txt_change.length>1 && txt.indexOf(key)>-1){
-				txt = txt.replace(key, txt_change);
-				hLog += (key + ' --> ' + txt_change + '\n');
-			}
-
-			// remove internalspaces from key and check again for replacements.
-			var xkey = key.trim();
-			if(xkey.indexOf(' ')>-1){
-				// remove spaces from copied key
-				while(xkey.indexOf(' ')>-1){
-					xkey = xkey.substr(0, xkey.indexOf(' ')) + xkey.substr(xkey.indexOf(' ')+1);
+	// num-text --> number
+    	if (Homey.manager('settings').get('textnumber') == 1) {
+		if (typeof changeNumTxt === 'object') {
+			Object.keys(changeNumTxt).forEach(function (key) {
+				var txt_change = changeNumTxt[key];
+				while(txt_change.length>1 && txt.indexOf(key)>-1){
+					txt = txt.replace(key, txt_change);
+					hLog += (key + ' --> ' + txt_change + '\n');
 				}
-				xkey = ' ' + xkey + ' ';
-				while(txt_change.length>1 && txt.indexOf(xkey)>-1){
-					txt = txt.replace(xkey, txt_change);
-					hLog += (xkey + ' --> ' + txt_change + '\n');
-				}
-			}
-		});
+				
+			});
+		}
 	}
+
+	// replacements
+    	//if (Homey.manager('settings').get('textnumber') == 1) {
+		if (typeof changeToNum === 'object') {
+			Object.keys(changeToNum).forEach(function (key) {
+				var txt_change = changeToNum[key];
+				while(txt_change.length>1 && txt.indexOf(key)>-1){
+					txt = txt.replace(key, txt_change);
+					hLog += (key + ' --> ' + txt_change + '\n');
+				}
+
+				// remove internalspaces from key and check again for replacements.
+				var xkey = key.trim();
+				if(xkey.indexOf(' ')>-1){
+					// remove spaces from copied key
+					while(xkey.indexOf(' ')>-1){
+						xkey = xkey.substr(0, xkey.indexOf(' ')) + xkey.substr(xkey.indexOf(' ')+1);
+					}
+					xkey = ' ' + xkey + ' ';
+					while(txt_change.length>1 && txt.indexOf(xkey)>-1){
+						txt = txt.replace(xkey, txt_change);
+						hLog += (xkey + ' --> ' + txt_change + '\n');
+					}
+				}
+			});
+		}
+	//}
 
 	// search for numbers
 	for(var i=0; i<txt.length; i++){
@@ -133,8 +141,8 @@ Homey.manager('flow').on('action.number_detect', function( callback, args ){
 
 	// assign to trigger cards
 	if(numDetected.length>0 && numDetected2.length==0){
+		// trigger card: 1 number found
 		if( Number(numDetected)<1000000){
-			// trigger card: 1 number found
 			mDig = [0, 0, 0, 0, 0, 0];
 			for(var j=0; j<6; j++){
 				if( j<numDetected.length){
@@ -144,8 +152,8 @@ Homey.manager('flow').on('action.number_detect', function( callback, args ){
 			tokens = {'full_text': txt_in, 'detected_number': Number(numDetected), 'digit_6': mDig[0], 'digit_5': mDig[1], 'digit_4': mDig[2], 'digit_3': mDig[3], 'digit_2': mDig[4], 'digit_1': mDig[5] };
 			Homey.manager('flow').trigger('one_number', tokens);
 		}
-
 	} else if(numDetected.length>0 && numDetected2.length>0){
+
 		// trigger card: 2 numbers found, 2+3 digits
 		if( Number(numDetected)<100 && Number(numDetected2)<1000){
 			mDig = [0, 0, 0, 0, 0, 0];
@@ -163,7 +171,7 @@ Homey.manager('flow').on('action.number_detect', function( callback, args ){
 			Homey.manager('flow').trigger('two_numbers', tokens); 
 		}
 
-		// trigger card: 3 + 2
+		// trigger card: 2 numbers found, 3+2 digits
 		if( Number(numDetected)<1000 && Number(numDetected2)<100){
 			mDig = [0, 0, 0, 0, 0, 0];
 			for(var j=0; j<3; j++){
