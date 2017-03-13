@@ -1,18 +1,20 @@
 {
     "settings": {
-        "keyword": "Tekst",
-        "keynumb": "Vervangend nummer",
-        "intro": "Numcatch zoekt getallen in een tekst en stelt de individuele cijfers beschikbaar voor verdere verwerking.",
-	"combinations_checkbox": "Zoek ook tekst-getallen zoals bijvoorbeeld 'drieentwintig'",
-	"link_info": "Gebruik de ",
-        "link_info2": " om te controleren hoe Homey je spraak interpreteert. Bijvoorbeeld, hoort Homey 'BBC 1' of 'BBC1'?",
-        "link": "speech-input manager",
-        "settings_title": "Tekst vervangen door nummers",
-        "settings_intro": "Eventueel kunnen bepaalde teksten eerst worden omgezet naar een getal. Dit kan onder andere handig zijn bij het selecteren van TV-kanalen.<br><br>Hieronder kunnen maximaal 100 teksten en een vervangend getal worden ingevoerd (Voorbeeld: Discovery Science - 202). Gebruik bij zendernamen met een nummer ook een spatie. Numcatcher zoekt naar tekst met spaties en zonder spaties, zodat de trefzekerheid wordt vergroot. Gebruik dus geen 'BBC1' maar 'BBC 1'",
-        "add_fields_button": "Tekst met een vervangend getal toevoegen",
-        "save": "Opslaan",
-        "beforesaved": "Vergeet niet om wijzigingen op te slaan! -->",
-        "saved": "Wijzigingen zijn opgeslagen.",
-        "remove": "verwijder"
+        "intro": "Het Numcatch actie-kaartje zoekt getallen in een tekst en stelt de oorspronkelijke tekst, de gevonden getallen en de individuele cijfers via trigger-kaartjes beschikbaar voor verdere verwerking.",
+	"replace_title": "Tekst vervangen door een getal",
+        "replace_info": "Eventueel kunnen bepaalde teksten eerst worden vervangen door een getal. Dit kan onder andere handig zijn bij het selecteren van radio- of TV-kanalen.<br><br>Hiernaast kunnen maximaal 200 teksten en een vervangend getal worden ingevoerd (Voorbeeld: Discovery Science - 202).<br>Nieuwe items worden onderaan de lijst toegevoegd. Gebruik bij zendernamen met een getal ook een spatie. Numcatcher zoekt naar tekst met spaties en zonder spaties waardoor de trefzekerheid wordt vergroot. Gebruik dus geen 'BBC1' maar 'BBC 1'.<br><br>Klik op de kolom-titels om te sorteren.",
+        "replace_text": "&nbsp;Tekst",
+        "replace_numb": "&nbsp;Vervanging",
+        "replace_add_button": "Nieuwe tekst met vervanging toevoegen",
+	"replace_items": "items",
+	"textnumber_title": "Tekst-nummers vertalen naar cijfers.",
+	"textnumber_info": "Het kan gebeuren dat Homey een nummer niet herkent als cijfers maar als tekst (voorbeeld: 'een' in plaats van '1'). Wanneer dit stoort in de flows, gebruik dan deze instelling om alle woorden van 'nul' t/m 'negenennegentig' te vertalen naar getallen 0...99.",
+	"textnumber_checkbox": "Tekst-nummers naar cijfers vertalen.",
+	"remove": "Verwijderen",
+	"used": "Gebruikt",
+	"free": "Vrij",
+	"updated": "Bijgewerkt",
+	"sort_text": "Sorteren op tekst",
+	"sort_replacement": "Sorteren op vervanging"
     }
 }
